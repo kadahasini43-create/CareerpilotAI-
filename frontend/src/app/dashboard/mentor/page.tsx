@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { api } from '@/utils/api';
 import { 
-  Send, Compass, Sparkles, MessageSquare, 
+  Send, Compass, MessageSquare, 
   HelpCircle, ChevronRight, Loader2, RefreshCw 
 } from 'lucide-react';
 
@@ -111,25 +111,7 @@ export default function MentorChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputText, setInputText] = useState('');
   const [loading, setLoading] = useState(false);
-  const [geminiKey, setGeminiKey] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setGeminiKey(localStorage.getItem('gemini_api_key') || '');
-    }
-  }, []);
-
-  const handleSaveApiKey = (key: string) => {
-    setGeminiKey(key);
-    if (typeof window !== 'undefined') {
-      if (key.trim()) {
-        localStorage.setItem('gemini_api_key', key.trim());
-      } else {
-        localStorage.removeItem('gemini_api_key');
-      }
-    }
-  };
 
   useEffect(() => {
     // Seed initial message
@@ -436,39 +418,6 @@ Type your query below or pick one of the quick suggestions to begin.`,
           <p className="text-[10px] text-gray-500 mt-1 max-w-[200px]">
             Targeting **{profile?.dreamRole || 'Software'}** with {profile?.skills?.length || 0} skills loaded.
           </p>
-        </div>
-
-        {/* Gemini API Key Configuration Card */}
-        <div className="glass-card p-6 rounded-2xl border border-white/5 space-y-4">
-          <div className="flex items-center gap-2 text-blue-400 font-extrabold text-xs uppercase tracking-wider">
-            <Sparkles className="w-4.5 h-4.5" />
-            Gemini Core Settings
-          </div>
-          <p className="text-[11px] text-gray-400 leading-relaxed">
-            Configure a custom Gemini API Key to upgrade your AI mentor to full Gemini 1.5 capabilities. Otherwise, a high-fidelity local engine is used.
-          </p>
-          <div className="space-y-2">
-            <input
-              type="password"
-              placeholder="AIzaSy..."
-              value={geminiKey}
-              onChange={(e) => handleSaveApiKey(e.target.value)}
-              className="w-full bg-black/40 border border-white/10 rounded-xl px-3 py-2 outline-none focus:border-blue-500 text-[10px] text-white font-mono transition-all"
-            />
-            <div className="flex justify-between items-center text-[9px]">
-              <a
-                href="https://aistudio.google.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-blue-400 hover:underline flex items-center gap-0.5"
-              >
-                Get a free key
-              </a>
-              <span className={geminiKey ? "text-emerald-450 font-semibold" : "text-gray-500"}>
-                {geminiKey ? "● Real Gemini Active" : "● Offline Fallback Active"}
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
