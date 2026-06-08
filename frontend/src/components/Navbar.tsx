@@ -18,6 +18,7 @@ export default function Navbar() {
   }, []);
 
   const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    if (token) return;
     if (window.location.pathname === '/') {
       e.preventDefault();
       const element = document.getElementById(targetId);
@@ -46,10 +47,10 @@ export default function Navbar() {
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="/#features" onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Features</a>
-          <a href="/#paths" onClick={(e) => handleScrollClick(e, 'paths')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Career Paths</a>
-          <a href="/#roadmaps" onClick={(e) => handleScrollClick(e, 'roadmaps')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Roadmaps</a>
-          <a href="/#resources" onClick={(e) => handleScrollClick(e, 'resources')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Resources</a>
+          <Link href={token ? "/dashboard" : "/#features"} onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Features</Link>
+          <Link href={token ? "/dashboard/paths" : "/#paths"} onClick={(e) => handleScrollClick(e, 'paths')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Career Paths</Link>
+          <Link href={token ? "/dashboard/roadmaps" : "/#roadmaps"} onClick={(e) => handleScrollClick(e, 'roadmaps')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Roadmaps</Link>
+          <Link href={token ? "/dashboard/roadmaps" : "/#resources"} onClick={(e) => handleScrollClick(e, 'resources')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Resources</Link>
         </div>
 
         {/* Desktop Call to Actions */}
@@ -81,10 +82,10 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full glass-panel border-b border-white/10 py-6 px-6 flex flex-col gap-5 bg-black/95">
-          <a href="/#features" onClick={(e) => { handleScrollClick(e, 'features'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Features</a>
-          <a href="/#paths" onClick={(e) => { handleScrollClick(e, 'paths'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Career Paths</a>
-          <a href="/#roadmaps" onClick={(e) => { handleScrollClick(e, 'roadmaps'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Roadmaps</a>
-          <a href="/#resources" onClick={(e) => { handleScrollClick(e, 'resources'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Resources</a>
+          <Link href={token ? "/dashboard" : "/#features"} onClick={(e) => { handleScrollClick(e, 'features'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Features</Link>
+          <Link href={token ? "/dashboard/paths" : "/#paths"} onClick={(e) => { handleScrollClick(e, 'paths'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Career Paths</Link>
+          <Link href={token ? "/dashboard/roadmaps" : "/#roadmaps"} onClick={(e) => { handleScrollClick(e, 'roadmaps'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Roadmaps</Link>
+          <Link href={token ? "/dashboard/roadmaps" : "/#resources"} onClick={(e) => { handleScrollClick(e, 'resources'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Resources</Link>
           
           <div className="h-px bg-white/5 my-2" />
 

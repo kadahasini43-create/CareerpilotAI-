@@ -2,9 +2,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { Compass } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Footer() {
+  const { token } = useAuth();
+  
   const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    if (token) return;
     if (window.location.pathname === '/') {
       e.preventDefault();
       const element = document.getElementById(targetId);
@@ -34,10 +38,10 @@ export default function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Features</h4>
           <ul className="space-y-2.5">
-            <li><a href="/#features" onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">AI Mentor Chat</a></li>
-            <li><a href="/#roadmaps" onClick={(e) => handleScrollClick(e, 'roadmaps')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Roadmap Timeline</a></li>
-            <li><a href="/#features" onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Resume ATS Grader</a></li>
-            <li><a href="/#features" onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Mock Interviews</a></li>
+            <li><Link href={token ? "/dashboard/mentor" : "/#features"} onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">AI Mentor Chat</Link></li>
+            <li><Link href={token ? "/dashboard/roadmaps" : "/#roadmaps"} onClick={(e) => handleScrollClick(e, 'roadmaps')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Roadmap Timeline</Link></li>
+            <li><Link href={token ? "/dashboard/resume" : "/#features"} onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Resume ATS Grader</Link></li>
+            <li><Link href={token ? "/dashboard/interviews" : "/#features"} onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Mock Interviews</Link></li>
           </ul>
         </div>
 
