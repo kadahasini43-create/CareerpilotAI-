@@ -1,3 +1,3 @@
-:HL["/CareerpilotAI-/_next/static/chunks/0p8al5kt7wgyi.css","style"]
+:HL["/CareerpilotAI-/_next/static/chunks/3w3z6n6ayxdf0.css","style"]
 :HL["/CareerpilotAI-/_next/static/media/1b99372b3eaef0c8-s.p.1gsd1jahc5dg_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"dashboard","param":null,"prefetchHints":0,"slots":{"children":{"name":"challenges","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"5g9DDkOel4OdPVF3mSiWL"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"dashboard","param":null,"prefetchHints":0,"slots":{"children":{"name":"challenges","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"SdgY4cP_y_DfnSU1817Pz"}
