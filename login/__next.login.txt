@@ -2,4 +2,4 @@
 2:I[32035,["/CareerpilotAI-/_next/static/chunks/3ll9vodqx9ush.js","/CareerpilotAI-/_next/static/chunks/21p-i82-2u343.js"],"default"]
 3:I[91168,["/CareerpilotAI-/_next/static/chunks/3ll9vodqx9ush.js","/CareerpilotAI-/_next/static/chunks/21p-i82-2u343.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"11ATvXTkEJfq8PPSzFqDF"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"xiGZr0ot27IgK1psNljT9"}
