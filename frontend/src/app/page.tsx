@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import { 
   Sparkles, Compass, CheckCircle2, ChevronRight, MessageSquare, 
   Map, FileCheck, ShieldAlert, Target, Mic, Code, ListTodo, 
-  Briefcase, GraduationCap, TrendingUp, Award, Zap
+  Briefcase, GraduationCap, TrendingUp, Award, Zap, BookOpen, Terminal, ExternalLink
 } from 'lucide-react';
 
 const featuresList = [
@@ -60,9 +60,9 @@ export default function LandingPage() {
               Start Career Journey
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/#features" className="px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-sm font-semibold text-center text-gray-300 hover:text-white transition-all backdrop-blur-sm">
+            <a href="#features" className="px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-sm font-semibold text-center text-gray-300 hover:text-white transition-all backdrop-blur-sm cursor-pointer">
               Explore Features
-            </Link>
+            </a>
           </div>
 
           {/* Quick Metrics */}
@@ -188,6 +188,161 @@ export default function LandingPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Roadmaps Section */}
+      <section id="roadmaps" className="py-20 md:py-28 relative z-10 border-t border-white/5 bg-gradient-to-b from-[#030308] to-[#060613]">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-purple-500/20 bg-purple-500/5 text-xs font-semibold text-purple-400 mb-4">
+            Curated Journeys
+          </div>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
+            Personalized Learning Roadmaps
+          </h2>
+          <p className="text-gray-400 max-w-xl mx-auto mb-16 text-sm md:text-base">
+            No more guessing what to learn next. CareerPilot creates customized step-by-step pathways to take you from beginner to job-ready.
+          </p>
+
+          {/* Interactive Roadmap Steps Visual */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative max-w-5xl mx-auto">
+            {/* Step 1 */}
+            <div className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center relative group glow-border-purple">
+              <div className="w-12 h-12 rounded-xl bg-purple-600/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-5">
+                <Target className="w-6 h-6" />
+              </div>
+              <span className="text-[10px] font-extrabold text-purple-400 uppercase tracking-widest mb-2">Step 01</span>
+              <h3 className="text-base font-bold text-white mb-2">Identify & Map</h3>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Select your target career path and let AI assess your current skills to outline immediate gaps.
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center relative group glow-border-purple">
+              <div className="w-12 h-12 rounded-xl bg-indigo-600/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-5">
+                <BookOpen className="w-6 h-6" />
+              </div>
+              <span className="text-[10px] font-extrabold text-indigo-400 uppercase tracking-widest mb-2">Step 02</span>
+              <h3 className="text-base font-bold text-white mb-2">Study Core Material</h3>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Learn via structured weekly curriculums containing selected courses, official docs, and videos.
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center relative group glow-border-purple">
+              <div className="w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-5">
+                <Code className="w-6 h-6" />
+              </div>
+              <span className="text-[10px] font-extrabold text-blue-400 uppercase tracking-widest mb-2">Step 03</span>
+              <h3 className="text-base font-bold text-white mb-2">Build Proof-of-Work</h3>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Develop real-world, portfolio-grade projects designed to showcase your skills to future employers.
+              </p>
+            </div>
+
+            {/* Step 4 */}
+            <div className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center relative group glow-border-purple">
+              <div className="w-12 h-12 rounded-xl bg-cyan-600/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-5">
+                <Award className="w-6 h-6" />
+              </div>
+              <span className="text-[10px] font-extrabold text-cyan-400 uppercase tracking-widest mb-2">Step 04</span>
+              <h3 className="text-base font-bold text-white mb-2">Practice & Land</h3>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Test your knowledge through custom coding challenges and prepare for interviews using our Voice simulator.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Curated Resources Section */}
+      <section id="resources" className="py-20 md:py-28 relative z-10 border-t border-white/5 bg-[#030308]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5 flex flex-col items-start text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-xs font-semibold text-cyan-400 mb-4">
+                Elite Learning Material
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+                Curated Learning Resources
+              </h2>
+              <p className="text-gray-400 mb-8 leading-relaxed text-sm md:text-base">
+                We crawl documentation, online courses, and interactive platforms to recommend only the most current and industry-relevant materials for each career roadmap.
+              </p>
+              <div className="space-y-4 w-full">
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2 rounded-lg bg-blue-600/15 text-blue-400 shrink-0 mt-0.5">
+                    <FileCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white">Up-to-Date Documentation</h4>
+                    <p className="text-xs text-gray-400 mt-0.5">Learn using primary sources like official docs and MDN guides.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3.5">
+                  <div className="p-2 rounded-lg bg-indigo-600/15 text-indigo-400 shrink-0 mt-0.5">
+                    <Terminal className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white">Interactive Coding Playgrounds</h4>
+                    <p className="text-xs text-gray-400 mt-0.5">Get hand-picked practice repositories and code sandboxes.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Resource Item 1 */}
+              <div className="glass-card p-6 rounded-2xl border border-white/5 relative overflow-hidden group glow-border-cyan">
+                <div className="absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-600/20 border border-blue-500/30 text-blue-400">
+                  Documentation
+                </div>
+                <h3 className="text-sm font-bold text-white mb-2 mt-2">NextJS & React Masterclass</h3>
+                <p className="text-xs text-gray-400 mb-4 leading-relaxed">Official framework guides and advanced developer documentation.</p>
+                <span className="text-[10px] text-gray-500 flex items-center gap-1">
+                  Source: Vercel Docs <ExternalLink className="w-2.5 h-2.5" />
+                </span>
+              </div>
+
+              {/* Resource Item 2 */}
+              <div className="glass-card p-6 rounded-2xl border border-white/5 relative overflow-hidden group glow-border-cyan">
+                <div className="absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-600/20 border border-indigo-500/30 text-indigo-400">
+                  Courses
+                </div>
+                <h3 className="text-sm font-bold text-white mb-2 mt-2">Modern Systems Design</h3>
+                <p className="text-xs text-gray-400 mb-4 leading-relaxed">Highly rated modular lectures covering distributed architectures and databases.</p>
+                <span className="text-[10px] text-gray-500 flex items-center gap-1">
+                  Source: Curated Courses <ExternalLink className="w-2.5 h-2.5" />
+                </span>
+              </div>
+
+              {/* Resource Item 3 */}
+              <div className="glass-card p-6 rounded-2xl border border-white/5 relative overflow-hidden group glow-border-cyan">
+                <div className="absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-purple-600/20 border border-purple-500/30 text-purple-400">
+                  Practice
+                </div>
+                <h3 className="text-sm font-bold text-white mb-2 mt-2">DSA & Algo Playgrounds</h3>
+                <p className="text-xs text-gray-400 mb-4 leading-relaxed">LeetCode Lists, Codeforces, and HackerRank custom modules categorized by difficulty.</p>
+                <span className="text-[10px] text-gray-500 flex items-center gap-1">
+                  Source: Code Platforms <ExternalLink className="w-2.5 h-2.5" />
+                </span>
+              </div>
+
+              {/* Resource Item 4 */}
+              <div className="glass-card p-6 rounded-2xl border border-white/5 relative overflow-hidden group glow-border-cyan">
+                <div className="absolute top-3 right-3 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-600/20 border border-cyan-500/30 text-cyan-400">
+                  Project Templates
+                </div>
+                <h3 className="text-sm font-bold text-white mb-2 mt-2">Full-Stack Repositories</h3>
+                <p className="text-xs text-gray-400 mb-4 leading-relaxed">Boilerplate codebases with CI/CD configurations for instant developer start.</p>
+                <span className="text-[10px] text-gray-500 flex items-center gap-1">
+                  Source: GitHub Curated <ExternalLink className="w-2.5 h-2.5" />
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

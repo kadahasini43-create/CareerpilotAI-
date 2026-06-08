@@ -4,6 +4,16 @@ import Link from 'next/link';
 import { Compass } from 'lucide-react';
 
 export default function Footer() {
+  const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="border-t border-white/5 bg-black/40 py-12 relative z-10">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -24,10 +34,10 @@ export default function Footer() {
         <div>
           <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Features</h4>
           <ul className="space-y-2.5">
-            <li><Link href="/#features" className="text-sm text-gray-400 hover:text-white transition-colors">AI Mentor Chat</Link></li>
-            <li><Link href="/#features" className="text-sm text-gray-400 hover:text-white transition-colors">Roadmap Timeline</Link></li>
-            <li><Link href="/#features" className="text-sm text-gray-400 hover:text-white transition-colors">Resume ATS Grader</Link></li>
-            <li><Link href="/#features" className="text-sm text-gray-400 hover:text-white transition-colors">Mock Interviews</Link></li>
+            <li><a href="/#features" onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">AI Mentor Chat</a></li>
+            <li><a href="/#roadmaps" onClick={(e) => handleScrollClick(e, 'roadmaps')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Roadmap Timeline</a></li>
+            <li><a href="/#features" onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Resume ATS Grader</a></li>
+            <li><a href="/#features" onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Mock Interviews</a></li>
           </ul>
         </div>
 

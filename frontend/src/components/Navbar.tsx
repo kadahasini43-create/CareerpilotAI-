@@ -17,6 +17,16 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <nav className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
       scrolled 
@@ -36,10 +46,10 @@ export default function Navbar() {
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/#features" className="text-sm text-gray-400 hover:text-white transition-colors">Features</Link>
-          <Link href="/#paths" className="text-sm text-gray-400 hover:text-white transition-colors">Career Paths</Link>
-          <Link href="/#roadmaps" className="text-sm text-gray-400 hover:text-white transition-colors">Roadmaps</Link>
-          <Link href="/#resources" className="text-sm text-gray-400 hover:text-white transition-colors">Resources</Link>
+          <a href="/#features" onClick={(e) => handleScrollClick(e, 'features')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Features</a>
+          <a href="/#paths" onClick={(e) => handleScrollClick(e, 'paths')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Career Paths</a>
+          <a href="/#roadmaps" onClick={(e) => handleScrollClick(e, 'roadmaps')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Roadmaps</a>
+          <a href="/#resources" onClick={(e) => handleScrollClick(e, 'resources')} className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">Resources</a>
         </div>
 
         {/* Desktop Call to Actions */}
@@ -71,10 +81,10 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full glass-panel border-b border-white/10 py-6 px-6 flex flex-col gap-5 bg-black/95">
-          <Link href="/#features" className="text-sm text-gray-300 hover:text-white py-1" onClick={() => setMobileMenuOpen(false)}>Features</Link>
-          <Link href="/#paths" className="text-sm text-gray-300 hover:text-white py-1" onClick={() => setMobileMenuOpen(false)}>Career Paths</Link>
-          <Link href="/#roadmaps" className="text-sm text-gray-300 hover:text-white py-1" onClick={() => setMobileMenuOpen(false)}>Roadmaps</Link>
-          <Link href="/#resources" className="text-sm text-gray-300 hover:text-white py-1" onClick={() => setMobileMenuOpen(false)}>Resources</Link>
+          <a href="/#features" onClick={(e) => { handleScrollClick(e, 'features'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Features</a>
+          <a href="/#paths" onClick={(e) => { handleScrollClick(e, 'paths'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Career Paths</a>
+          <a href="/#roadmaps" onClick={(e) => { handleScrollClick(e, 'roadmaps'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Roadmaps</a>
+          <a href="/#resources" onClick={(e) => { handleScrollClick(e, 'resources'); setMobileMenuOpen(false); }} className="text-sm text-gray-300 hover:text-white py-1 cursor-pointer">Resources</a>
           
           <div className="h-px bg-white/5 my-2" />
 
