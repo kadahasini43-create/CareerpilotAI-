@@ -582,31 +582,22 @@ export async function apiRequest(endpoint: string, options: RequestInit = {}): P
     headers
   };
 
+  let response;
   try {
-    const response = await fetch(`${API_URL}/api${endpoint}`, config);
+    response = await fetch(`${API_URL}/api${endpoint}`, config);
+  } catch (networkError: any) {
+    console.warn(`[API Offline Fallback] Backend server at ${API_URL} is unreachable. Redirecting ${endpoint} to client-side localStorage sandbox. Error:`, networkError.message);
+    return offlineMockHandler(endpoint, options);
+  }
+
+  try {
     const data = await response.json();
-    
     if (!response.ok) {
       throw new Error(data.error || 'Something went wrong');
     }
-    
     return data;
   } catch (error: any) {
     console.error(`API Error in ${endpoint}:`, error.message);
-    
-    const isNetworkError = 
-      !error.message ||
-      error.message === 'Failed to fetch' || 
-      error.message === 'fetch failed' || 
-      error.message.includes('NetworkError') || 
-      error.message.includes('Network error') || 
-      error.message.includes('connect ECONNREFUSED');
-      
-    if (isNetworkError) {
-      console.warn(`[API Offline Fallback] Backend server at ${API_URL} is unreachable. Redirecting ${endpoint} to client-side localStorage sandbox.`);
-      return offlineMockHandler(endpoint, options);
-    }
-    
     throw error;
   }
 }
